@@ -3,7 +3,6 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import ContentContainerHeader from "./content-container-header";
 
 import { Stack, SxProps } from "@mui/system";
-import EcommerceBody from "./E-commerce/body";
 import PlaceholderContent from "../../../PlaceholderContent";
 import { useNavigation } from "../../../NavigationContext";
 
@@ -59,34 +58,10 @@ export default function ContentContainer() {
         section1_crypto: "Crypto",
     };
 
-    // Section 2 routes
-    const section2Routes = {
-        ecommerce: "E-commerce",
-        crm: "CRM",
-        projectManagement: "Project Management",
-        booking: "Booking",
-        kanban: "Kanban",
-        chat: "Chat",
-        calendar: "Calendar",
-    };
-
-    // Section 3 routes
-    const section3Routes = {
-        landingPage: "Landing Page",
-        authentication: "Authentication",
-        error: "Error",
-        pricing: "Pricing",
-    };
-
     const renderContent = () => {
-        if (activeTab === "section1_ecommerce") {
-            return <EcommerceBody />;
-        }
         // Check all sections for the active tab
         const title =
             (section1Routes as Record<string, string>)[activeTab] ||
-            (section2Routes as Record<string, string>)[activeTab] ||
-            (section3Routes as Record<string, string>)[activeTab] ||
             "Unknown";
 
         return <PlaceholderContent title={title} />;
@@ -98,8 +73,6 @@ export default function ContentContainer() {
                 <ContentContainerHeader
                     HeaderName={
                         (section1Routes as Record<string, string>)[activeTab] ||
-                        (section2Routes as Record<string, string>)[activeTab] ||
-                        (section3Routes as Record<string, string>)[activeTab] ||
                         "Unknown"
                     }
                 />
